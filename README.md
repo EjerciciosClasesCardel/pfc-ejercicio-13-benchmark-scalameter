@@ -1,4 +1,4 @@
-# Clase 13 — Medir el paralelismo
+# Ejercicio 13 — Medir el paralelismo
 
 Fundamentos de Programación Funcional y Concurrente
 Escuela de Ingeniería de Sistemas y Computación, Universidad del Valle
