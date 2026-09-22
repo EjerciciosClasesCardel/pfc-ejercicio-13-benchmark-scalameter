@@ -6,45 +6,104 @@ class Ejercicio {
 
   // Tal como está todo devuelve 0 y las pruebas quedan en rojo.
 
-  /** Suma de los productos entre desde (incluida) y hasta (excluida). */
-  def productoPuntoSegmento(x: Array[Int], y: Array[Int],
-                            desde: Int, hasta: Int): Int = {
+  // Punto 1. El programa que se va a medir.
+
+  // Suma de los elementos entre desde (incluida) y hasta (excluida).
+  def sumaSegmento(a: Array[Int], desde: Int, hasta: Int): Int = {
     0 // Completar
   }
 
-  /** Producto punto secuencial: la referencia contra la que se compara. */
-  def productoPuntoSecuencial(x: Array[Int], y: Array[Int]): Int = {
+  // Suma del segmento por divide y vencerás, sin paralelismo: cuando el
+  // segmento tiene a lo sumo umbral elementos se suma directo; si no, se
+  // parte por la mitad y se suman las dos partes.
+  def reduceSec(a: Array[Int], desde: Int, hasta: Int, umbral: Int): Int = {
     0 // Completar
   }
 
-  /** Producto punto repartido en `partes` segmentos con `parallel`.
-    *
-    * Con partes = 1 se resuelve en secuencial; con 2, 4 u 8 se reparte
-    * dividiendo el rango por la mitad tantas veces como haga falta.
-    */
-  def productoPuntoParalelo(x: Array[Int], y: Array[Int], partes: Int): Int = {
+  // Lo mismo, con las dos mitades evaluadas a la vez mediante parallel.
+  def reducePar(a: Array[Int], desde: Int, hasta: Int, umbral: Int): Int = {
     0 // Completar
   }
 
-  /** El trabajo de un algoritmo de dividir y vencer sobre n elementos: el
-    * número total de operaciones, que no baja por repartirlo.
-    */
-  def trabajo(n: Int): Int = {
+  // Punto 2. Trabajo y profundidad del reduce que baja hasta un elemento.
+
+  // Número de sumas que hace el reduce sobre n elementos.
+  def trabajoReducePar(n: Int): Int = {
     0 // Completar
   }
 
-  /** La profundidad del mismo algoritmo: la cadena más larga de operaciones
-    * que tienen que hacerse una tras otra. Con n elementos y divisiones a la
-    * mitad, es el número de niveles del árbol de división.
-    */
-  def profundidad(n: Int): Int = {
+  // Número de niveles de sumas que van una tras otra: la altura del árbol.
+  def profundidadReducePar(n: Int): Int = {
     0 // Completar
   }
 
-  /** El tiempo estimado con p procesadores: la profundidad más el trabajo
-    * repartido entre ellos.
-    */
-  def tiempoEstimado(n: Int, p: Int): Double = {
+  // Trabajo sobre profundidad; con un elemento o menos es 1.
+  def aceleracionMaxima(n: Int): Double = {
     0.0 // Completar
+  }
+
+  // Punto 3. Tiempo con p procesadores y ley de Amdahl.
+
+  // La profundidad más el trabajo repartido entre p procesadores.
+  def tiempoEstimado(trabajo: Int, profundidad: Int, p: Int): Double = {
+    0.0 // Completar
+  }
+
+  // Aceleración con p procesadores cuando la fracción f del programa es
+  // serial. f va de 0 a 1 y p es al menos 1.
+  def amdahl(f: Double, p: Int): Double = {
+    0.0 // Completar
+  }
+
+  // El techo de la aceleración con infinitos procesadores. f va de 0
+  // (excluido) a 1.
+  def amdahlInfinito(f: Double): Double = {
+    0.0 // Completar
+  }
+
+  // La mayor fracción serial con la que p procesadores todavía alcanzan la
+  // aceleración pedida. p es al menos 2 y la aceleración va de 1 a p.
+  def fraccionSerialMaxima(p: Int, aceleracion: Double): Double = {
+    0.0 // Completar
+  }
+
+  // Verdadero cuando la aceleración de Amdahl llega al mínimo pedido.
+  def valeLaPenaParalelizar(f: Double, p: Int, aceleracionMinima: Double = 1.5): Boolean = {
+    false // Completar
+  }
+
+  // Punto 4. Medir bien: la estadística aparte del reloj.
+
+  // Quita el peor 10 % de los tiempos, es decir, size / 10 de los mayores.
+  def descartarAtipicos(tiempos: List[Double]): List[Double] = {
+    List() // Completar
+  }
+
+  // Promedio de la lista; 0 si está vacía.
+  def promedio(tiempos: List[Double]): Double = {
+    0.0 // Completar
+  }
+
+  // Desviación estándar de la lista, dividiendo por el tamaño; 0 si está
+  // vacía.
+  def desviacion(tiempos: List[Double]): Double = {
+    0.0 // Completar
+  }
+
+  // Promedio y desviación de los tiempos que quedan tras descartar los
+  // atípicos.
+  def resumen(tiempos: List[Double]): (Double, Double) = {
+    (0.0, 0.0) // Completar
+  }
+
+  // Milisegundos que tarda una evaluación del bloque.
+  def medirUna[A](bloque: => A): Double = {
+    0.0 // Completar
+  }
+
+  // Evalúa el bloque calentamiento veces sin medir, después lo mide
+  // repeticiones veces y devuelve el resumen de esos tiempos.
+  def medirSinAtipicos[A](repeticiones: Int, calentamiento: Int)(bloque: => A): (Double, Double) = {
+    (0.0, 0.0) // Completar
   }
 }
